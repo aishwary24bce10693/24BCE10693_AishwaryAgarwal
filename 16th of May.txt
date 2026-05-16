@@ -1,0 +1,27 @@
+CREATE DATABASE VitCampus;
+
+USE VitCampus;
+
+CREATE TABLE CSE (
+    id INT,
+    name VARCHAR(50),
+    marks INT
+);
+
+CREATE TABLE MECHANICAL (
+    id INT,
+    name VARCHAR(50),
+    marks INT
+);
+
+CREATE TABLE EEE (
+    id INT,
+    name VARCHAR(50),
+    marks INT
+);
+
+SELECT * FROM CSE;
+
+SELECT * FROM MECHANICAL;
+
+SELECT * FROM EEE;
