@@ -1,0 +1,74 @@
+show databases;
+use vitbhopal;
+CREATE TABLE Persons (
+	First_name  varchar(50) NOT NULL,
+	Last_name  varchar(50) UNIQUE,
+    ID int,
+    Age int
+);
+desc persons;
+INSERT into Persons values('Aishwary','Agarwal',12,25);
+INSERT into Persons values('Hary','Agarwal',12,24);
+select * from Persons;
+
+ALTER TABLE Persons
+ADD UNIQUE(Age);
+ALTER TABLE Persons
+DROP constraint Last_name;
+
+drop table persons;
+
+CREATE table Persons(
+	ID INT UNIQUE not null,
+    First_name varchar(50) not null,
+    Last_name varchar(50) not null,
+    Age int not null,
+    CHECK(age>=18)
+);
+
+desc Persons;
+INSERT into persons values(104,'Aishwary','Agarwal',21);
+INSERT into persons values(103,'Hary','Agarwal',20);
+select * from persons;
+
+ALTER TABLE Persons	
+ADD CHECK (Age<=25);
+
+create table products(
+pid int PRIMARY KEY,
+pname varchar(100) not null,
+prefno int unique not null
+);
+
+desc products;
+insert into products values(101,'electronics',201147);
+select * from Products;
+
+ALTER TABLE products 
+DROP PRIMARY KEY;
+ALTER TABLE products
+ADD PRIMARY KEY(pid);
+
+create table category(
+cid int primary key,
+cname varchar(100) not null
+);
+desc category;
+
+insert into category values (101,'Software');
+insert into category values (102,'Furniture');
+select * from category;
+
+CREATE TABLE product1 (
+    pid int primary key,
+    pname varchar(100) NOT NULL,
+    cid int, 
+    FOREIGN KEY (cid) REFERENCES category(cid)
+);
+desc product1;
+
+insert into product1 values (2001,'Wooden Cubboard',102);
+insert into product1 values(2002,'Anaconda Installer',101);
+select * from product1;
+
+delete from category where cid=101;
