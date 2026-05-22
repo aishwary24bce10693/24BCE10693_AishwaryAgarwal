@@ -1,0 +1,35 @@
+USE vitcampus;
+
+CREATE TABLE departments (
+    did INT PRIMARY KEY,
+    dname VARCHAR(25) NOT NULL UNIQUE
+);
+
+INSERT INTO departments 
+VALUES 
+(101, 'CSE'),
+(102, 'ECE'),
+(103, 'Civil'),
+(106, 'Aero'),
+(107, 'Mech');
+
+SELECT * 
+FROM departments 
+ORDER BY did;
+
+CREATE TABLE HOD (
+    Hid INT PRIMARY KEY,
+    hname VARCHAR(20) NOT NULL UNIQUE
+);
+
+INSERT INTO HOD 
+VALUES 
+(101, 'Arun'),
+(102, 'Jayanth'),
+(104, 'Karthik'),
+(105, 'Murali');
+
+SELECT * 
+FROM HOD;
+
+select * from HOD;
