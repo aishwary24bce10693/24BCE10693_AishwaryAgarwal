@@ -1,0 +1,46 @@
+mongod --dbpath "C:\Program Files\MongoDB\Server\4.4\data\db" --logpath "C:\Program Files\MongoDB\Server\4.4\log\mongod.log" --port 27017 --storageEngine wiredTiger --journal --replSet prodrep
+
+mongod --dbpath "C:\data1\db" --logpath "C:\data1\log\mongod.log" --port 27020 --storageEngine wiredTiger --journal --replSet prodrep
+
+mongod --dbpath "C:\data2\db" --logpath "C:\data2\log\mongod.log" --port 27030 --storageEngine wiredTiger --journal --replSet prodrep
+
+mongo --port 27017
+
+rs.initiate({
+   _id: "prodrep",
+   members: [
+      { _id: 0, host: "localhost:27017" }
+   ]
+})
+
+rs.add("localhost:27020")
+
+rs.add("localhost:27030")
+
+rs.status()
+
+use repdb1
+
+db.student.insertOne({
+   name: "Avi"
+})
+
+mongo --port 27020
+
+rs.slaveOk()
+
+show dbs
+
+use repdb1
+
+db.student.find()
+
+mongo --port 27030
+
+rs.slaveOk()
+
+show dbs
+
+use repdb1
+
+db.student.find()
