@@ -1,0 +1,65 @@
+# College Academic Management System
+
+## Introduction
+
+The College Academic Management System is a backend application developed using Node.js, Express.js, and MongoDB. The project is designed to manage academic data such as Departments, Staff, Students, and Books. It provides RESTful APIs for performing Create, Read, Update, and Delete (CRUD) operations. The APIs are tested using Postman, while MongoDB is used to store and manage the data efficiently.
+
+## Objective
+
+The main objective of this project is to develop a backend system that manages college academic records efficiently. The project aims to demonstrate CRUD operations and implement different database relationships such as One-to-One, One-to-Many, and Many-to-Many using Mongoose.
+
+## Technologies Used
+
+The project is developed using Node.js as the runtime environment and Express.js as the backend framework. MongoDB is used as the NoSQL database, while Mongoose is used as the Object Data Modeling (ODM) library to interact with MongoDB. Postman is used for testing and verifying the REST APIs. Additional packages such as dotenv, Morgan, and CORS are used for environment management, request logging, and handling cross-origin requests respectively.
+
+## Project Modules
+
+The system consists of four main modules.
+
+Department Module:
+This module manages department information such as department name, code, description, and Head of Department (HOD).
+
+Staff Module:
+This module manages staff details including employee ID, name, email, phone number, designation, and department.
+
+Student Module:
+This module manages student records including roll number, name, email, phone number, year of study, and department.
+
+Book Module:
+This module manages library books and stores details such as title, author, ISBN, total copies, and available copies.
+
+## Database Relationships
+
+The project demonstrates three important types of database relationships.
+
+One-to-One Relationship:
+A one-to-one relationship exists between Department and Staff in the form of HOD assignment. Each department can have only one Head of Department, and one staff member can be the HOD of only one department.
+
+One-to-Many Relationship:
+A one-to-many relationship exists between Department and Students. A single department can have multiple students, but each student belongs to only one department.
+
+Similarly, a one-to-many relationship exists between Department and Staff. A department can have many staff members, while each staff member belongs to one department.
+
+Many-to-Many Relationship:
+A many-to-many relationship exists between Students and Books. A student can borrow multiple books, and a book can be borrowed by multiple students over time. Separate APIs are provided to borrow and return books, and both student and book records are updated accordingly.
+
+## Features
+
+The project provides the following features:
+
+* CRUD operations for Departments, Staff, Students, and Books.
+* APIs to assign and remove HOD from a department.
+* Borrow and return book functionality.
+* MongoDB database integration using Mongoose.
+* RESTful API architecture.
+* API testing using Postman.
+* Environment variable management using dotenv.
+* Request logging using Morgan.
+
+## Project Workflow
+
+The workflow of the project starts with creating a department. After creating a department, staff members are added and one of them can be assigned as the Head of Department. Students are then added to the department. Books are added to the library module, and students can borrow or return books using the provided APIs. All APIs are tested using Postman, and the data is stored and managed in MongoDB.
+
+## Conclusion
+
+The College Academic Management System successfully demonstrates backend development using Node.js, Express.js, and MongoDB. The project implements CRUD operations and different database relationships effectively. It provides hands-on experience with REST API development, database design, and API testing using Postman. The system is scalable, easy to maintain, and can be extended with a frontend interface in the future.
